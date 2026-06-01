@@ -1,0 +1,4 @@
+.cursor/
+my_docs/
+node_modules
+package.json

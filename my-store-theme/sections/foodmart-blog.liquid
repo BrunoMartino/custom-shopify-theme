@@ -1,0 +1,139 @@
+<section id="latest-blog" class="py-5 foodmart-blog" {{ section.shopify_attributes }}>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="section-header d-flex align-items-center justify-content-between my-5">
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+        <div class="btn-wrap align-right">
+          <a href="{{ section.settings.link_url | default: '#' }}" class="d-flex align-items-center nav-link">
+            {{ section.settings.link_text }}
+            {% render 'foodmart-icon', icon: 'arrow-right', width: 24 %}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% assign blog = blogs[section.settings.blog] %}
+      {% if section.settings.use_blog and blog != blank %}
+        {% for article in blog.articles limit: section.settings.articles_limit %}
+          <div class="col-md-4">
+            <article class="post-item card border-0 shadow-sm p-3">
+              <div class="image-holder zoom-effect foodmart-blog-thumb">
+                <a href="{{ article.url }}">
+                  {% if article.image %}
+                    <img
+                      src="{{ article.image | image_url: width: 600 }}"
+                      alt="{{ article.title | escape }}"
+                      class="card-img-top foodmart-img-cover"
+                      loading="lazy"
+                      width="600"
+                      height="400"
+                    >
+                  {% endif %}
+                </a>
+              </div>
+              <div class="card-body">
+                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
+                  <div class="meta-date">
+                    {% render 'foodmart-icon', icon: 'calendar', width: 16 %}
+                    {{ article.published_at | date: '%d %b %Y' }}
+                  </div>
+                  {% if article.tags.size > 0 %}
+                    <div class="meta-categories">
+                      {% render 'foodmart-icon', icon: 'category', width: 16 %}
+                      {{ article.tags.first }}
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="post-header">
+                  <h3 class="post-title">
+                    <a href="{{ article.url }}" class="text-decoration-none">{{ article.title }}</a>
+                  </h3>
+                  <p>{{ article.excerpt | default: article.content | strip_html | truncate: 120 }}</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          <div class="col-md-4">
+            {% render 'foodmart-blog-post', block: block %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FM Blog",
+  "tag": "section",
+  "class": "section-foodmart-blog",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Our Recent Blog" },
+    { "type": "text", "id": "link_text", "label": "Link text", "default": "Read All Articles" },
+    { "type": "url", "id": "link_url", "label": "Link URL" },
+    { "type": "checkbox", "id": "use_blog", "label": "Use Shopify blog", "default": false },
+    { "type": "blog", "id": "blog", "label": "Blog" },
+    {
+      "type": "range",
+      "id": "articles_limit",
+      "label": "Articles limit",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "excerpt", "label": "Excerpt" },
+        { "type": "text", "id": "date", "label": "Date", "default": "22 Aug 2021" },
+        { "type": "text", "id": "category", "label": "Category", "default": "tips & tricks" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "demo_image", "label": "Demo image filename", "default": "post-thumb-1.jpg" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FM Blog",
+      "blocks": [
+        {
+          "type": "article",
+          "settings": {
+            "title": "Top 10 casual look ideas to dress up your kids",
+            "demo_image": "post-thumb-1.jpg",
+            "date": "22 Aug 2021",
+            "category": "tips & tricks"
+          }
+        },
+        {
+          "type": "article",
+          "settings": {
+            "title": "Latest trends of wearing street wears supremely",
+            "demo_image": "post-thumb-2.jpg",
+            "date": "25 Aug 2021",
+            "category": "trending"
+          }
+        },
+        {
+          "type": "article",
+          "settings": {
+            "title": "10 Different Types of comfortable clothes ideas for women",
+            "demo_image": "post-thumb-3.jpg",
+            "date": "28 Aug 2021",
+            "category": "inspiration"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,49 @@
+{% comment %}
+  Main navigation (departments + menu). Used in desktop bar and mobile offcanvas menu.
+  @param menu - link_list handle (settings.main_menu)
+  @param department_menu - optional link_list for department select
+{% endcomment %}
+{% liquid
+  assign main_menu = linklists[menu]
+  assign dept_menu = linklists[department_menu]
+%}
+
+{% if dept_menu.links.size > 0 %}
+  <select class="filter-categories border-0 mb-0 me-lg-5" aria-label="{{ 'sections.header.shop_departments' | t }}">
+    <option value="">{{ 'sections.header.shop_departments' | t }}</option>
+    {% for link in dept_menu.links %}
+      <option value="{{ link.url }}">{{ link.title }}</option>
+    {% endfor %}
+  </select>
+{% endif %}
+
+{% if main_menu.links.size > 0 %}
+  <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex flex-column flex-lg-row gap-md-3 mb-0">
+    {% for link in main_menu.links %}
+      {% if link.links != blank %}
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="{{ link.url }}"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ link.title }}
+          </a>
+          <ul class="dropdown-menu">
+            {% for child in link.links %}
+              <li>
+                <a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        <li class="nav-item{% if link.active %} active{% endif %}">
+          <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,48 @@
+{% comment %}
+  @param block - article block settings or article object via block
+{% endcomment %}
+
+<article class="post-item card border-0 shadow-sm p-3" {{ block.shopify_attributes }}>
+  <div class="image-holder zoom-effect foodmart-blog-thumb">
+    <a href="{{ block.settings.link | default: '#' }}">
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 600 }}"
+          alt="{{ block.settings.title | escape }}"
+          class="card-img-top foodmart-img-cover"
+          loading="lazy"
+          width="600"
+          height="400"
+        >
+      {% elsif block.settings.demo_image != blank %}
+        {% render 'foodmart-asset-img',
+          filename: block.settings.demo_image,
+          alt: block.settings.title,
+          class: 'card-img-top foodmart-blog-thumb__img',
+          width: 600,
+          height: 400
+        %}
+      {% endif %}
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
+      <div class="meta-date">
+        {% render 'foodmart-icon', icon: 'calendar', width: 16 %}
+        {{ block.settings.date }}
+      </div>
+      <div class="meta-categories">
+        {% render 'foodmart-icon', icon: 'category', width: 16 %}
+        {{ block.settings.category }}
+      </div>
+    </div>
+    <div class="post-header">
+      <h3 class="post-title">
+        <a href="{{ block.settings.link | default: '#' }}" class="text-decoration-none">{{ block.settings.title }}</a>
+      </h3>
+      {% if block.settings.excerpt != blank %}
+        <p>{{ block.settings.excerpt }}</p>
+      {% endif %}
+    </div>
+  </div>
+</article>

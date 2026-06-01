@@ -1,0 +1,88 @@
+{% assign pattern_url = 'foodmart/bg-leaves-img-pattern.png' | asset_url %}
+
+<section class="py-5 foodmart-newsletter" {{ section.shopify_attributes }}>
+  <div class="container-fluid">
+    <div
+      class="bg-secondary py-5 my-5 rounded-5"
+      style="background: url('{{ pattern_url }}') no-repeat;"
+    >
+      <div class="container my-5">
+        <div class="row">
+          <div class="col-md-6 p-5">
+            <div class="section-header">
+              <h2 class="section-title display-4">
+                {{ section.settings.heading }}
+                {% if section.settings.heading_highlight != blank %}
+                  <span class="text-primary">{{ section.settings.heading_highlight }}</span>
+                {% endif %}
+                {{ section.settings.heading_suffix }}
+              </h2>
+            </div>
+            {% if section.settings.text != blank %}
+              <p>{{ section.settings.text }}</p>
+            {% endif %}
+          </div>
+          <div class="col-md-6 p-5">
+            {% form 'customer', class: 'newsletter-form' %}
+              <div class="mb-3">
+                <label for="NewsletterName-{{ section.id }}" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="contact[first_name]"
+                  id="NewsletterName-{{ section.id }}"
+                  placeholder="Name"
+                >
+              </div>
+              <div class="mb-3">
+                <label for="NewsletterEmail-{{ section.id }}" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control form-control-lg"
+                  name="contact[email]"
+                  id="NewsletterEmail-{{ section.id }}"
+                  placeholder="abc@mail.com"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+              <div class="form-check form-check-inline mb-3">
+                <input class="form-check-input" type="checkbox" id="NewsletterSubscribe-{{ section.id }}" checked>
+                <label class="form-check-label" for="NewsletterSubscribe-{{ section.id }}">
+                  {{ section.settings.checkbox_label }}
+                </label>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-dark btn-lg">{{ section.settings.button_text }}</button>
+              </div>
+              {% if form.posted_successfully? %}
+                <p class="mt-3 mb-0 text-success">{{ section.settings.success_message }}</p>
+              {% endif %}
+              {% if form.errors %}
+                <p class="mt-3 mb-0 text-danger">{{ form.errors | default_errors }}</p>
+              {% endif %}
+            {% endform %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FM Newsletter",
+  "tag": "section",
+  "class": "section-foodmart-newsletter",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get" },
+    { "type": "text", "id": "heading_highlight", "label": "Highlighted heading", "default": "25% Discount" },
+    { "type": "text", "id": "heading_suffix", "label": "Heading suffix", "default": "on your first purchase" },
+    { "type": "textarea", "id": "text", "label": "Description" },
+    { "type": "text", "id": "checkbox_label", "label": "Checkbox label", "default": "Subscribe to the newsletter" },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Submit" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thanks for subscribing!" }
+  ],
+  "presets": [{ "name": "FM Newsletter" }]
+}
+{% endschema %}

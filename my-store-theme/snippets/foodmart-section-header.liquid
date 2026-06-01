@@ -1,0 +1,47 @@
+{% comment %}
+  @param title
+  @param link_text
+  @param link_url
+  @param carousel_nav - category | brand | products (FoodMart nav button classes)
+  @param nav_button_class - default btn-yellow
+{% endcomment %}
+{% liquid
+  assign prev_extra = ''
+  assign next_extra = ''
+  if carousel_nav == 'category'
+    assign prev_extra = ' category-carousel-prev'
+    assign next_extra = ' category-carousel-next'
+  elsif carousel_nav == 'brand'
+    assign prev_extra = ' brand-carousel-prev'
+    assign next_extra = ' brand-carousel-next'
+  elsif carousel_nav == 'products'
+    assign prev_extra = ' products-carousel-prev'
+    assign next_extra = ' products-carousel-next'
+  endif
+%}
+<div class="section-header d-flex flex-wrap justify-content-between mb-5">
+  <h2 class="section-title">{{ title }}</h2>
+  <div class="d-flex align-items-center">
+    {% if link_text != blank %}
+      <a href="{{ link_url | default: '#' }}" class="btn-link text-decoration-none">{{ link_text }}</a>
+    {% endif %}
+    {% if carousel_nav != blank %}
+      <div class="swiper-buttons d-flex gap-2">
+        <button
+          type="button"
+          class="swiper-prev{{ prev_extra }} btn {{ nav_button_class | default: 'btn-yellow' }} d-inline-flex align-items-center justify-content-center"
+          aria-label="Previous"
+        >
+          {% render 'foodmart-icon', icon: 'arrow-left', width: 18 %}
+        </button>
+        <button
+          type="button"
+          class="swiper-next{{ next_extra }} btn {{ nav_button_class | default: 'btn-yellow' }} d-inline-flex align-items-center justify-content-center"
+          aria-label="Next"
+        >
+          {% render 'foodmart-icon', icon: 'arrow-right', width: 18 %}
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,47 @@
+{% comment %}
+  @param search_placeholder
+  @param show_category_filter
+  @param department_menu - link_list handle
+{% endcomment %}
+<div
+  class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasSearch"
+  aria-labelledby="offcanvasSearchLabel"
+>
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="{{ 'general.accessibility.close' | t }}"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3" id="offcanvasSearchLabel">
+        <span class="text-primary">{{ 'sections.header.search_title' | t }}</span>
+      </h4>
+      {% if show_category_filter %}
+        {% assign dept_menu = linklists[department_menu] %}
+        {% if dept_menu.links.size > 0 %}
+          <select class="form-select filter-categories border-0 mb-3 w-100" aria-label="{{ 'sections.header.shop_departments' | t }}">
+            <option value="">{{ 'sections.header.all_categories' | t }}</option>
+            {% for link in dept_menu.links %}
+              <option value="{{ link.url }}">{{ link.title }}</option>
+            {% endfor %}
+          </select>
+        {% endif %}
+      {% endif %}
+      <form action="{{ routes.search_url }}" method="get" role="search" class="d-flex mt-3 gap-0 foodmart-offcanvas-search-form">
+        <input
+          class="form-control rounded-start rounded-0 bg-light"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ search_placeholder | default: 'Search products' | escape }}"
+          aria-label="{{ 'sections.header.search_title' | t }}"
+        >
+        <button class="btn btn-dark rounded-end rounded-0" type="submit">
+          {{ 'sections.header.search_submit' | t }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,251 @@
+<header class="foodmart-header site-header bg-white" {{ section.shopify_attributes }}>
+  {% render 'foodmart-offcanvas-cart' %}
+  {% render 'foodmart-offcanvas-search',
+    search_placeholder: section.settings.search_placeholder,
+    show_category_filter: section.settings.show_category_filter,
+    department_menu: section.settings.department_menu
+  %}
+  {% render 'foodmart-offcanvas-account' %}
+  {% render 'foodmart-offcanvas-wishlist', wishlist_url: section.settings.wishlist_url %}
+
+  <div class="container-fluid">
+    <div class="row py-3 border-bottom">
+      <div class="col-sm-4 col-lg-3 text-center text-sm-start">
+        <div class="main-logo">
+          <a href="{{ routes.root_url }}">
+            {% if settings.logo %}
+              <img
+                src="{{ settings.logo | image_url: width: settings.logo_max_width }}"
+                alt="{{ shop.name | escape }}"
+                class="img-fluid"
+                width="{{ settings.logo_max_width }}"
+                height="auto"
+                loading="eager"
+              >
+            {% else %}
+              <span class="fs-3 fw-bold text-dark">{{ shop.name }}</span>
+            {% endif %}
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
+        <form
+          action="{{ routes.search_url }}"
+          method="get"
+          role="search"
+          class="search-bar row bg-light p-2 my-2 rounded-4 g-0 align-items-center foodmart-header-search-form"
+        >
+          {% if section.settings.show_category_filter %}
+            <div class="col-md-4 d-none d-md-block">
+              {% assign dept_menu = linklists[section.settings.department_menu] %}
+              {% if dept_menu.links.size > 0 %}
+                <select class="form-select border-0 bg-transparent foodmart-dept-select" aria-label="{{ 'sections.header.shop_departments' | t }}">
+                  <option value="">{{ 'sections.header.all_categories' | t }}</option>
+                  {% for link in dept_menu.links %}
+                    <option value="{{ link.url }}">{{ link.title }}</option>
+                  {% endfor %}
+                </select>
+              {% endif %}
+            </div>
+          {% endif %}
+          <div class="col-11 col-md-7">
+            <input
+              type="search"
+              name="q"
+              class="form-control border-0 bg-transparent"
+              placeholder="{{ section.settings.search_placeholder | escape }}"
+              value="{{ search.terms | escape }}"
+              aria-label="{{ 'sections.header.search_title' | t }}"
+            >
+          </div>
+          <div class="col-1 d-flex align-items-center justify-content-center">
+            <button type="submit" class="btn btn-link border-0 p-0 text-dark d-flex" aria-label="{{ 'sections.header.search_submit' | t }}">
+              {% render 'foodmart-icon', icon: 'search', width: 24 %}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+        {% if section.settings.support_phone != blank %}
+          <div class="support-box text-end d-none d-xl-block">
+            {% if section.settings.support_label != blank %}
+              <span class="fs-6 text-muted">{{ section.settings.support_label }}</span>
+            {% endif %}
+            <h5 class="mb-0">
+              <a href="tel:{{ section.settings.support_phone | replace: ' ', '' }}" class="text-dark text-decoration-none">
+                {{ section.settings.support_phone }}
+              </a>
+            </h5>
+          </div>
+        {% endif %}
+
+        <ul class="d-flex justify-content-end list-unstyled m-0">
+          <li>
+            <button
+              type="button"
+              class="rounded-circle bg-light p-2 mx-1 border-0 d-inline-flex align-items-center justify-content-center text-dark"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasAccount"
+              aria-controls="offcanvasAccount"
+              aria-label="{{ 'sections.header.account_title' | t }}"
+            >
+              {% render 'foodmart-icon', icon: 'user', width: 24 %}
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="rounded-circle bg-light p-2 mx-1 border-0 d-inline-flex align-items-center justify-content-center text-dark"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasWishlist"
+              aria-controls="offcanvasWishlist"
+              aria-label="{{ 'sections.header.wishlist_title' | t }}"
+            >
+              {% render 'foodmart-icon', icon: 'heart', width: 24 %}
+            </button>
+          </li>
+          <li class="d-lg-none">
+            <button
+              type="button"
+              class="rounded-circle bg-light p-2 mx-1 border-0 d-inline-flex align-items-center justify-content-center text-dark"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasCart"
+              aria-controls="offcanvasCart"
+              aria-label="{{ 'sections.header.cart_title' | t }}"
+            >
+              {% render 'foodmart-icon', icon: 'cart', width: 24 %}
+            </button>
+          </li>
+          <li class="d-lg-none">
+            <button
+              type="button"
+              class="rounded-circle bg-light p-2 mx-1 border-0 d-inline-flex align-items-center justify-content-center text-dark"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasSearch"
+              aria-controls="offcanvasSearch"
+              aria-label="{{ 'sections.header.search_title' | t }}"
+            >
+              {% render 'foodmart-icon', icon: 'search', width: 24 %}
+            </button>
+          </li>
+        </ul>
+
+        <div class="cart text-end d-none d-lg-block">
+          <button
+            class="border-0 bg-transparent d-flex flex-column gap-2 lh-1 text-end"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasCart"
+            aria-controls="offcanvasCart"
+          >
+            <span class="fs-6 text-muted">{{ 'sections.header.cart_label' | t }}</span>
+            <span class="cart-total fs-5 fw-bold">{{ cart.total_price | money }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row py-3">
+      <div class="d-flex justify-content-between align-items-center w-100 gap-3">
+        <button
+          type="button"
+          class="foodmart-menu-trigger btn btn-yellow d-inline-flex align-items-center gap-2"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        >
+          <span class="navbar-toggler-icon d-lg-none" aria-hidden="true"></span>
+          {% render 'foodmart-icon', icon: 'category', width: 22, class: 'd-none d-lg-inline-block' %}
+          <span>{{ 'sections.header.browse_menu' | t }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="offcanvasNavbar"
+    aria-labelledby="offcanvasNavbarLabel"
+  >
+    <div class="offcanvas-header justify-content-center">
+      <h5 class="offcanvas-title visually-hidden" id="offcanvasNavbarLabel">{{ 'sections.header.menu' | t }}</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="{{ 'general.accessibility.close' | t }}"
+      ></button>
+    </div>
+
+    <div class="offcanvas-body">
+      {% render 'foodmart-header-nav',
+        menu: settings.main_menu,
+        department_menu: section.settings.department_menu
+      %}
+    </div>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll('.foodmart-dept-select, .filter-categories').forEach(function (select) {
+    select.addEventListener('change', function () {
+      if (this.value) window.location.href = this.value;
+    });
+  });
+
+  var searchOffcanvas = document.getElementById('offcanvasSearch');
+  if (searchOffcanvas) {
+    searchOffcanvas.addEventListener('shown.bs.offcanvas', function () {
+      var input = searchOffcanvas.querySelector('input[type="search"]');
+      if (input) input.focus();
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "support_label",
+      "label": "Support label",
+      "default": "For Support?"
+    },
+    {
+      "type": "text",
+      "id": "support_phone",
+      "label": "Support phone"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search for more than 20,000 products"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category_filter",
+      "label": "Category filter in search",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "department_menu",
+      "label": "Departments menu"
+    },
+    {
+      "type": "url",
+      "id": "wishlist_url",
+      "label": "Wishlist page URL"
+    }
+  ]
+}
+{% endschema %}

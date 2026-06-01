@@ -1,0 +1,21 @@
+<footer class="site-footer border-top py-5 mt-auto" {{ section.shopify_attributes }}>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.footer.copyright' | t }}</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0 text-muted">{{ shop.email }}</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "section",
+  "class": "section-footer",
+  "settings": []
+}
+{% endschema %}

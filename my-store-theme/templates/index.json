@@ -1,0 +1,218 @@
+{
+  "sections": {
+    "hero_banners": {
+      "type": "foodmart-hero-banners",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "badge": "100% natural",
+            "title": "Fresh Smoothie & Summer Juice",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.",
+            "button_text": "Shop Now",
+            "demo_image": "product-thumb-1.png"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "badge": "100% natural",
+            "title": "Fresh Smoothie & Summer Juice",
+            "button_text": "Shop Collection",
+            "demo_image": "product-thumb-1.png"
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "badge": "100% natural",
+            "title": "Heinz Tomato Ketchup",
+            "button_text": "Shop Collection",
+            "demo_image": "product-thumb-2.png"
+          }
+        },
+        "side_1": {
+          "type": "side_banner",
+          "settings": {
+            "grid_block": "2",
+            "bg_class": "bg-success-subtle",
+            "badge": "20% off",
+            "title": "Fruits & Vegetables",
+            "demo_background": "ad-image-1.png"
+          }
+        },
+        "side_2": {
+          "type": "side_banner",
+          "settings": {
+            "grid_block": "3",
+            "bg_class": "bg-danger",
+            "badge": "15% off",
+            "title": "Baked Products",
+            "use_item_title": true,
+            "demo_background": "ad-image-2.png"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3", "side_1", "side_2"]
+    },
+    "categories": {
+      "type": "foodmart-category-carousel",
+      "blocks": {
+        "cat_1": { "type": "category", "settings": { "title": "Fruits & Veges", "demo_image": "icon-vegetables-broccoli.png" } },
+        "cat_2": { "type": "category", "settings": { "title": "Breads & Sweets", "demo_image": "icon-bread-baguette.png" } },
+        "cat_3": { "type": "category", "settings": { "title": "Soft Drinks", "demo_image": "icon-soft-drinks-bottle.png" } },
+        "cat_4": { "type": "category", "settings": { "title": "Wine & Alcohol", "demo_image": "icon-wine-glass-bottle.png" } },
+        "cat_5": { "type": "category", "settings": { "title": "Meat & Poultry", "demo_image": "icon-animal-products-drumsticks.png" } },
+        "cat_6": { "type": "category", "settings": { "title": "Flour & Baking", "demo_image": "icon-bread-herb-flour.png" } }
+      },
+      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4", "cat_5", "cat_6"]
+    },
+    "brands": {
+      "type": "foodmart-brands-carousel",
+      "blocks": {
+        "brand_1": { "type": "brand", "settings": { "demo_image": "product-thumb-11.jpg" } },
+        "brand_2": { "type": "brand", "settings": { "demo_image": "product-thumb-12.jpg" } },
+        "brand_3": { "type": "brand", "settings": { "demo_image": "product-thumb-13.jpg" } },
+        "brand_4": { "type": "brand", "settings": { "demo_image": "product-thumb-14.jpg" } }
+      },
+      "block_order": ["brand_1", "brand_2", "brand_3", "brand_4"]
+    },
+    "trending": {
+      "type": "foodmart-trending-products",
+      "blocks": {
+        "p1": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "filter_group": "all" } },
+        "p2": { "type": "product_card", "settings": { "demo_image": "thumb-biscuits.png", "filter_group": "fruits" } },
+        "p3": { "type": "product_card", "settings": { "demo_image": "thumb-cucumber.png", "filter_group": "fruits" } },
+        "p4": { "type": "product_card", "settings": { "demo_image": "thumb-orange-juice.png", "filter_group": "juices" } },
+        "p5": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png", "filter_group": "fruits" } },
+        "p6": { "type": "product_card", "settings": { "demo_image": "thumb-milk.png", "filter_group": "juices", "badge": "" } },
+        "p7": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoketchup.png", "filter_group": "all" } },
+        "p8": { "type": "product_card", "settings": { "demo_image": "thumb-raspberries.png", "filter_group": "fruits" } },
+        "p9": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "filter_group": "juices" } },
+        "p10": { "type": "product_card", "settings": { "demo_image": "thumb-avocado.png", "filter_group": "fruits" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"]
+    },
+    "promo": {
+      "type": "foodmart-promo-banners",
+      "blocks": {
+        "b1": {
+          "type": "banner",
+          "settings": {
+            "title": "Luxa Dark Chocolate",
+            "text": "Very tasty & creamy vanilla flavour creamy muffins.",
+            "demo_background": "ad-image-3.png"
+          }
+        },
+        "b2": {
+          "type": "banner",
+          "settings": {
+            "bg_class": "bg-info",
+            "title": "Creamy Muffins",
+            "text": "Very tasty & creamy vanilla flavour creamy muffins.",
+            "demo_background": "ad-image-4.png"
+          }
+        }
+      },
+      "block_order": ["b1", "b2"]
+    },
+    "best_selling": {
+      "type": "fm-product-carousel",
+      "settings": { "title": "Best selling products" },
+      "blocks": {
+        "bp1": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png" } },
+        "bp2": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoketchup.png" } },
+        "bp3": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png" } },
+        "bp4": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "badge": "" } },
+        "bp5": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png" } },
+        "bp6": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoketchup.png" } },
+        "bp7": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png" } },
+        "bp8": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png" } }
+      },
+      "block_order": ["bp1", "bp2", "bp3", "bp4", "bp5", "bp6", "bp7", "bp8"]
+    },
+    "just_arrived": {
+      "type": "fm-product-carousel",
+      "settings": { "title": "Just arrived" },
+      "blocks": {
+        "jp1": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png", "badge": "" } },
+        "jp2": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoketchup.png", "badge": "" } },
+        "jp3": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "badge": "" } },
+        "jp4": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "badge": "" } },
+        "jp5": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png", "badge": "" } },
+        "jp6": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoketchup.png", "badge": "" } },
+        "jp7": { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "badge": "" } },
+        "jp8": { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png", "badge": "" } }
+      },
+      "block_order": ["jp1", "jp2", "jp3", "jp4", "jp5", "jp6", "jp7", "jp8"]
+    },
+    "newsletter": {
+      "type": "foodmart-newsletter",
+      "settings": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst amet, metus, sit massa posuere maecenas."
+      }
+    },
+    "blog": {
+      "type": "foodmart-blog",
+      "blocks": {
+        "a1": {
+          "type": "article",
+          "settings": {
+            "title": "Top 10 casual look ideas to dress up your kids",
+            "excerpt": "Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam.",
+            "demo_image": "post-thumb-1.jpg",
+            "date": "22 Aug 2021",
+            "category": "tips & tricks"
+          }
+        },
+        "a2": {
+          "type": "article",
+          "settings": {
+            "title": "Latest trends of wearing street wears supremely",
+            "excerpt": "Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam.",
+            "demo_image": "post-thumb-2.jpg",
+            "date": "25 Aug 2021",
+            "category": "trending"
+          }
+        },
+        "a3": {
+          "type": "article",
+          "settings": {
+            "title": "10 Different Types of comfortable clothes ideas for women",
+            "excerpt": "Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam.",
+            "demo_image": "post-thumb-3.jpg",
+            "date": "28 Aug 2021",
+            "category": "inspiration"
+          }
+        }
+      },
+      "block_order": ["a1", "a2", "a3"]
+    },
+    "advantages": {
+      "type": "foodmart-advantages"
+    },
+    "search_tags": {
+      "type": "foodmart-search-tags",
+      "blocks": {
+        "t1": { "type": "tag" },
+        "t2": { "type": "tag", "settings": { "label": "Angie's Boomchickapop Corn" } },
+        "t3": { "type": "tag", "settings": { "label": "Chobani Greek Yogurt" } },
+        "t4": { "type": "tag", "settings": { "label": "Chicken meatballs" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    }
+  },
+  "order": [
+    "hero_banners",
+    "categories",
+    "brands",
+    "trending",
+    "promo",
+    "best_selling",
+    "just_arrived",
+    "newsletter",
+    "blog",
+    "advantages",
+    "search_tags"
+  ]
+}

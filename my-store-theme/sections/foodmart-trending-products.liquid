@@ -1,0 +1,132 @@
+<section class="py-5 foodmart-trending-products" {{ section.shopify_attributes }} data-isotope-section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="bootstrap-tabs product-tabs">
+          <div class="tabs-header d-flex justify-content-between border-bottom my-5 flex-wrap gap-3">
+            <h3 class="section-title mb-0">{{ section.settings.title }}</h3>
+            <nav data-isotope-filters>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="nav-link text-uppercase fs-6 active border-0 bg-transparent" data-isotope-filter="*">
+                  {{ section.settings.filter_all_label }}
+                </button>
+                <button type="button" class="nav-link text-uppercase fs-6 border-0 bg-transparent" data-isotope-filter=".filter-fruits">
+                  {{ section.settings.filter_fruits_label }}
+                </button>
+                <button type="button" class="nav-link text-uppercase fs-6 border-0 bg-transparent" data-isotope-filter=".filter-juices">
+                  {{ section.settings.filter_juices_label }}
+                </button>
+              </div>
+            </nav>
+          </div>
+
+          <div
+            class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"
+            data-isotope
+            data-isotope-options='{"itemSelector":"[data-isotope-item]","layoutMode":"fitRows","percentPosition":true}'
+          >
+            {% assign collection = collections[section.settings.collection] %}
+            {% if section.settings.use_collection and collection != blank %}
+              {% for product in collection.products limit: section.settings.products_limit %}
+                {% assign filter_class = 'filter-all' %}
+                {% for tag in product.tags %}
+                  {% if tag == section.settings.fruits_tag %}
+                    {% assign filter_class = 'filter-fruits' %}
+                  {% elsif tag == section.settings.juices_tag %}
+                    {% assign filter_class = 'filter-juices' %}
+                  {% endif %}
+                {% endfor %}
+                <div class="col {{ filter_class }}" data-isotope-item>
+                  {% render 'foodmart-product-item', product: product %}
+                </div>
+              {% endfor %}
+            {% else %}
+              {% for block in section.blocks %}
+                <div class="col filter-{{ block.settings.filter_group }}" data-isotope-item {{ block.shopify_attributes }}>
+                  {% render 'foodmart-product-item', block: block %}
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .foodmart-trending-products [data-isotope-filters] .nav-link.active {
+    border-bottom: 3px solid var(--accent-color) !important;
+    color: #111;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "FM Trending products",
+  "tag": "section",
+  "class": "section-foodmart-trending",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Trending Products" },
+    { "type": "text", "id": "filter_all_label", "label": "All filter label", "default": "All" },
+    { "type": "text", "id": "filter_fruits_label", "label": "Fruits filter label", "default": "Fruits & Veges" },
+    { "type": "text", "id": "filter_juices_label", "label": "Juices filter label", "default": "Juices" },
+    { "type": "checkbox", "id": "use_collection", "label": "Use Shopify collection", "default": false },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Products limit",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+    { "type": "text", "id": "fruits_tag", "label": "Fruits product tag", "default": "fruits" },
+    { "type": "text", "id": "juices_tag", "label": "Juices product tag", "default": "juices" }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "filter_group",
+          "label": "Filter group",
+          "options": [
+            { "value": "all", "label": "All" },
+            { "value": "fruits", "label": "Fruits & Veges" },
+            { "value": "juices", "label": "Juices" }
+          ],
+          "default": "all"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Sunstar Fresh Melon Juice" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$18.00" },
+        { "type": "text", "id": "qty", "label": "Quantity label", "default": "1 Unit" },
+        { "type": "text", "id": "rating", "label": "Rating", "default": "4.5" },
+        { "type": "text", "id": "badge", "label": "Badge", "default": "-30%" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "demo_image", "label": "Demo image filename", "default": "thumb-bananas.png" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FM Trending products",
+      "blocks": [
+        { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "filter_group": "all" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-biscuits.png", "filter_group": "fruits" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-cucumber.png", "filter_group": "fruits" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-orange-juice.png", "filter_group": "juices" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-tomatoes.png", "filter_group": "fruits" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-milk.png", "filter_group": "juices", "badge": "" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-tomatoketchup.png", "filter_group": "all" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-raspberries.png", "filter_group": "fruits" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-bananas.png", "filter_group": "juices" } },
+        { "type": "product_card", "settings": { "demo_image": "thumb-avocado.png", "filter_group": "fruits" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

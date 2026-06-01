@@ -1,0 +1,208 @@
+<section class="hero py-5" {{ section.shopify_attributes }}>
+  <div class="container py-lg-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        {% if section.settings.heading != blank %}
+          <h1 class="display-4 fw-bold mb-3">{{ section.settings.heading }}</h1>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <p class="lead text-muted mb-4">{{ section.settings.subheading }}</p>
+        {% endif %}
+
+        {% if section.settings.typed_strings != blank %}
+          <p class="fs-5 mb-4">
+            <span
+              class="fw-semibold text-primary"
+              data-typed
+              data-typed-strings="{{ section.settings.typed_strings | escape }}"
+            ></span>
+          </p>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="btn btn-theme btn-lg">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+
+        <div class="mt-4" x-data="{ open: false }">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            @click="open = !open"
+            :aria-expanded="open"
+          >
+            <span x-text="open ? 'Hide details' : 'Show details'"></span>
+          </button>
+          <div class="mt-3" x-show="open" x-transition>
+            <p class="text-muted mb-0">Alpine.js is active in this section.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="swiper hero-swiper" aria-label="Hero slider">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'slide' %}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="ratio ratio-16x9 rounded-4 overflow-hidden bg-light">
+                    {% if block.settings.image %}
+                      <img
+                        src="{{ block.settings.image | image_url: width: 1200 }}"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        class="foodmart-img-cover w-100 h-100"
+                        loading="lazy"
+                        width="1200"
+                        height="675"
+                      >
+                    {% else %}
+                      {{ 'lifestyle-1' | placeholder_svg_tag: 'w-100 h-100' }}
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if section.settings.show_featured_grid %}
+      <div class="mt-5 pt-4" data-aos="fade-up">
+        <div class="d-flex flex-wrap gap-2 mb-4" data-isotope-filters>
+          <button type="button" class="btn btn-sm btn-dark active" data-isotope-filter="*">All</button>
+          <button type="button" class="btn btn-sm btn-outline-dark" data-isotope-filter=".filter-featured">Featured</button>
+          <button type="button" class="btn btn-sm btn-outline-dark" data-isotope-filter=".filter-new">New</button>
+        </div>
+
+        <div class="row g-4" data-isotope data-isotope-options='{"itemSelector":"[data-isotope-item]","layoutMode":"fitRows"}'>
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div
+                class="col-md-4 filter-{{ block.settings.filter_group }}"
+                data-isotope-item
+                {{ block.shopify_attributes }}
+              >
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body">
+                    <h3 class="h5">{{ block.settings.title }}</h3>
+                    <p class="text-muted mb-0">{{ block.settings.text }}</p>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hero .object-fit-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "class": "section-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to our store"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover our latest collection"
+    },
+    {
+      "type": "text",
+      "id": "typed_strings",
+      "label": "Typed strings",
+      "default": "Quality products,Fast shipping,Great support",
+      "info": "Comma-separated values for Typed.js"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_grid",
+      "label": "Show featured grid",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Feature description"
+        },
+        {
+          "type": "select",
+          "id": "filter_group",
+          "label": "Filter group",
+          "options": [
+            { "value": "featured", "label": "Featured" },
+            { "value": "new", "label": "New" }
+          ],
+          "default": "featured"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

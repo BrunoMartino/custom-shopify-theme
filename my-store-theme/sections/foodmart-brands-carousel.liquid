@@ -1,0 +1,94 @@
+<section class="py-5 overflow-hidden foodmart-brands-carousel" {{ section.shopify_attributes }} data-swiper-root>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        {% render 'foodmart-section-header',
+          title: section.settings.title,
+          link_text: section.settings.link_text,
+          link_url: section.settings.link_url,
+          carousel_nav: 'brand'
+        %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="brand-carousel swiper" aria-label="{{ section.settings.title | escape }}">
+          <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
+                    <div class="row g-0">
+                      <div class="col-md-4 foodmart-brand-thumb">
+                        {% if block.settings.image %}
+                          <img
+                            src="{{ block.settings.image | image_url: width: 200 }}"
+                            alt="{{ block.settings.title | escape }}"
+                            class="img-fluid rounded foodmart-img-cover"
+                            loading="lazy"
+                            width="200"
+                            height="200"
+                          >
+                        {% elsif block.settings.demo_image != blank %}
+                          {% render 'foodmart-asset-img',
+                            filename: block.settings.demo_image,
+                            alt: block.settings.title,
+                            class: 'img-fluid rounded foodmart-brand-thumb__img',
+                            width: 200,
+                            height: 200
+                          %}
+                        {% endif %}
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body py-0">
+                          {% if block.settings.subtitle != blank %}
+                            <p class="text-muted mb-0">{{ block.settings.subtitle }}</p>
+                          {% endif %}
+                          <h5 class="card-title">{{ block.settings.title }}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FM New brands",
+  "tag": "section",
+  "class": "section-foodmart-brands",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Newly Arrived Brands" },
+    { "type": "text", "id": "link_text", "label": "Link text", "default": "View All Categories →" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand card",
+      "settings": [
+        { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Amber Jar" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Honey best nectar you wish to get" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "demo_image", "label": "Demo image filename", "default": "product-thumb-11.jpg" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FM New brands",
+      "blocks": [
+        { "type": "brand", "settings": { "demo_image": "product-thumb-11.jpg" } },
+        { "type": "brand", "settings": { "demo_image": "product-thumb-12.jpg" } },
+        { "type": "brand", "settings": { "demo_image": "product-thumb-13.jpg" } },
+        { "type": "brand", "settings": { "demo_image": "product-thumb-14.jpg" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

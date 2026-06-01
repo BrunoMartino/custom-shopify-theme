@@ -1,0 +1,49 @@
+<section class="py-5 foodmart-search-tags" {{ section.shopify_attributes }}>
+  <div class="container-fluid">
+    {% if section.settings.title != blank %}
+      <h2 class="my-5">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.link | default: '#' }}" class="btn btn-warning me-2 mb-2" {{ block.shopify_attributes }}>
+        {{ block.settings.label }}
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FM Search tags",
+  "tag": "section",
+  "class": "section-foodmart-search-tags",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "People are also looking for"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tag",
+      "name": "Tag",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Blue diamon almonds" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FM Search tags",
+      "blocks": [
+        { "type": "tag" },
+        { "type": "tag", "settings": { "label": "Angie's Boomchickapop Corn" } },
+        { "type": "tag", "settings": { "label": "Chobani Greek Yogurt" } },
+        { "type": "tag", "settings": { "label": "Chicken meatballs" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

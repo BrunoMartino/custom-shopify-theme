@@ -1,0 +1,27 @@
+{% comment %}
+  @param wishlist_url
+{% endcomment %}
+<div
+  class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasWishlist"
+  aria-labelledby="offcanvasWishlistLabel"
+>
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="{{ 'general.accessibility.close' | t }}"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="mb-3" id="offcanvasWishlistLabel">
+        <span class="text-primary">{{ 'sections.header.wishlist_title' | t }}</span>
+      </h4>
+      <p class="text-body-secondary mb-4">{{ 'sections.header.wishlist_hint' | t }}</p>
+      {% if wishlist_url != blank %}
+        <a class="w-100 btn btn-primary btn-lg" href="{{ wishlist_url }}">
+          {{ 'sections.header.wishlist_view' | t }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

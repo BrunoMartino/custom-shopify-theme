@@ -1,0 +1,63 @@
+<section class="py-5 foodmart-promo-banners" {{ section.shopify_attributes }}>
+  <div class="container-fluid">
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="col-md-6" {{ block.shopify_attributes }}>
+          {% assign bg_url = 'foodmart/' | append: block.settings.demo_background | asset_url %}
+          <div
+            class="banner-ad {{ block.settings.bg_class }} mb-3 mb-md-0"
+            style="background: url('{% if block.settings.background_image %}{{ block.settings.background_image | image_url: width: 800 }}{% else %}{{ bg_url }}{% endif %}');background-repeat: no-repeat;background-position: right bottom;"
+          >
+            <div class="banner-content p-5">
+              {% if block.settings.badge != blank %}
+                <div class="categories text-primary fs-3 fw-bold">{{ block.settings.badge }}</div>
+              {% endif %}
+              <h3 class="banner-title">{{ block.settings.title }}</h3>
+              {% if block.settings.text != blank %}
+                <p>{{ block.settings.text }}</p>
+              {% endif %}
+              {% if block.settings.button_text != blank %}
+                <a href="{{ block.settings.button_link | default: '#' }}" class="btn btn-dark text-uppercase">
+                  {{ block.settings.button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FM Promo banners",
+  "tag": "section",
+  "class": "section-foodmart-promo",
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        { "type": "text", "id": "bg_class", "label": "Background class", "default": "bg-danger" },
+        { "type": "text", "id": "badge", "label": "Badge", "default": "Upto 25% Off" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Luxa Dark Chocolate" },
+        { "type": "textarea", "id": "text", "label": "Text" },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Show Now" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "image_picker", "id": "background_image", "label": "Background image" },
+        { "type": "text", "id": "demo_background", "label": "Demo background filename", "default": "ad-image-3.png" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FM Promo banners",
+      "blocks": [
+        { "type": "banner", "settings": { "demo_background": "ad-image-3.png", "text": "Very tasty & creamy vanilla flavour creamy muffins." } },
+        { "type": "banner", "settings": { "bg_class": "bg-info", "title": "Creamy Muffins", "demo_background": "ad-image-4.png", "text": "Very tasty & creamy vanilla flavour creamy muffins." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

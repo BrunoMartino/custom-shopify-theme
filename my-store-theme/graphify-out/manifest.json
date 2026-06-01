@@ -1,0 +1,377 @@
+{
+  "/home/bruno/shopify-store/my-store-theme/assets/theme.js": {
+    "mtime": 1780268299.0068996,
+    "ast_hash": "9300f3edad416f080dd1ccb4c6dd1190",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/config/settings_data.json": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "e3ef466bd400b174ebb104f3d46bf7fd",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/config/settings_schema.json": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "9a96da5d5ff34bdb5a7075d77dd3b815",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/locales/en.default.json": {
+    "mtime": 1780268249.768114,
+    "ast_hash": "d418155c04cce8366e9a76bf582a5514",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/package.json": {
+    "mtime": 1780267773.3558946,
+    "ast_hash": "b2c511d227891b0091d17fb601083df3",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/sections/footer-group.json": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "fdfa71d46043c49f29be39e3912a1c07",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/sections/header-group.json": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "b0236db93a5aee7e7cbfa433ba6a9350",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/src/js/modules/alpine.js": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "a1cca15cbe4edd83881fa67c29db9627",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/src/js/modules/aos.js": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "5a003d923d8d6664d6088df5c01b99b2",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/src/js/modules/isotope.js": {
+    "mtime": 1780265166.422151,
+    "ast_hash": "3470539a7332010e2c3dbc9cad8f26db",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/src/js/modules/swiper.js": {
+    "mtime": 1780267793.384712,
+    "ast_hash": "52590fd831d483cdef2045deac7c5c95",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/src/js/modules/typed.js": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "2c9ee3438e232612c684ad933f15540b",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/src/js/theme.js": {
+    "mtime": 1780267773.8858988,
+    "ast_hash": "d68b0a5d688da32c1d140ffc4327842e",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/templates/index.json": {
+    "mtime": 1780265544.0661895,
+    "ast_hash": "daca842b39f211480383d9969b787bc7",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/vite.config.js": {
+    "mtime": 1780261376.2521996,
+    "ast_hash": "22408874831fadf0791c843eebb16d79",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/ad-bg-pattern.png": {
+    "mtime": 1780265143.4944932,
+    "ast_hash": "dda85b23521240a4ec57c61403e2cf55",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/ad-image-1.png": {
+    "mtime": 1780265143.4944932,
+    "ast_hash": "7652728e9f5f1c3be37e3628c69ca647",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/ad-image-2.png": {
+    "mtime": 1780265143.4983048,
+    "ast_hash": "4ccbdbba6585ae58bcb0d953870b255e",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/ad-image-3.png": {
+    "mtime": 1780265143.4983048,
+    "ast_hash": "990499bf2cdb32dd9a6772f3f4d7ce94",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/ad-image-4.png": {
+    "mtime": 1780265143.4983048,
+    "ast_hash": "67ab5f81985dc1257b1739d46ac17d59",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/app-store.jpg": {
+    "mtime": 1780265143.4983048,
+    "ast_hash": "a2a1bc24181b37368f91d7dbf039bafa",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/background-pattern.jpg": {
+    "mtime": 1780265143.4983048,
+    "ast_hash": "f7b9ee5b5ccefcd0252c6986b04de6c1",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/banner-image-1.jpg": {
+    "mtime": 1780265143.5021164,
+    "ast_hash": "ddad794796d87919b514262f177c26dc",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/banner-image-2.jpg": {
+    "mtime": 1780265143.5021164,
+    "ast_hash": "db34754dc3acffccc9fe59fe48c034b8",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/bg-dot-pattern.png": {
+    "mtime": 1780265143.5021164,
+    "ast_hash": "d828e35b1c398633d19bce5e1e12f99e",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/bg-leaves-img-pattern.png": {
+    "mtime": 1780265143.5021164,
+    "ast_hash": "8541ff320d7ae8462cede8ec0ca7738d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/bg-leaves-pattern.png": {
+    "mtime": 1780265143.5021164,
+    "ast_hash": "7fe68020251fabcd6636c2b5118f336c",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/bg-light.jpg": {
+    "mtime": 1780265143.5021164,
+    "ast_hash": "c5df6ddd79df9996161c085458b13ba4",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/bg-pattern-2.png": {
+    "mtime": 1780265143.5021164,
+    "ast_hash": "d3b5c17ef9bab3d36acb49e9621a65b5",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/chocolat/close.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "8392367012c53fcf63dc67db6af88089",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/chocolat/fullscreen-black.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "c8565a823591701e4a5ae1485d8a7ba8",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/chocolat/fullscreen.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "f86e0d274a740e58b074742ce4ed675c",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/chocolat/left.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "9dcdfa02e6ab41c2bf0010098ffaaf18",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/chocolat/loader.gif": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "be1cede97289c13920048f238fd37b85",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/chocolat/right.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "4980609302d5a87d89577245b79e3f2d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/gift.svg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "1ef90b1de83b363f2085f04b81ed2d46",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/google-play.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "1e0b4d3f63fb5f253a3c2bf8b01f7a0d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/icon-animal-products-drumsticks.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "9e5f96a222f22b90044aecd1c401e039",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/icon-bread-baguette.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "cffd9d9d7b7b91f4e67c27b71355a168",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/icon-bread-herb-flour.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "29523793329e90716173337dbdde1608",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/icon-soft-drinks-bottle.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "a622839f7969d6c15736dbc52d6e7175",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/icon-vegetables-broccoli.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "0870f509702e7710c4f80b3f6a5e79f0",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/icon-wine-glass-bottle.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "6bda2a74e6247c4a544896ba56b4440c",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/logo.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "57796c4a31a3099bfa0a734f6f722e75",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/phone.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "208171674ff3115a488b54d50668615d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/post-thumb-1.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "bc3bb274180706caf0058eff2068664f",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/post-thumb-2.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "b5c4958a733c5f2c439729c5cd7d4c59",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/post-thumb-3.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "dc5a2d026584cb7712b53c096f61cdbf",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/product-thumb-1.png": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "edb60b12078bcea0bf4a4fb58d777d8d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/product-thumb-11.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "af883dfdf650194792af7727fc456cf5",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/product-thumb-12.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "c893c51f0f827247d3f9e0f8d9aefc6b",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/product-thumb-13.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "fef80ed0a7447b308e7f142594e3690d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/product-thumb-14.jpg": {
+    "mtime": 1780265143.5059278,
+    "ast_hash": "d7e4b69aa524ebddafc807fb1baa362d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/product-thumb-2.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "c8d48768e841e4ecbced9363bb651538",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/reviewer-1.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "502e7dbad59df8c3400aba632e9832d2",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/reviewer-2.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "8f4cd5e64aa4839772dc9b18faba60f4",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/reviewer-3.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "6f0fb05546f46b7e757ce9f1997bcd6d",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/singel-product-item.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "edf83151fd4bafb126241a268a224f59",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/slide-1.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "09e4b7935780260a5331a0f183784cdb",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/slide-2.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "848ec515484213596b487752a0c6e7d8",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/slide-3.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "339063dd1c84bf57cd48631d833f9601",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/slide-4.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "2c72e8d488b119e8db5b404601f3ba81",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-avocado.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "f888e125351b01c5c4d45eff6afa2d67",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-bananas.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "88eda97d1b42764b9ee898c2afd10693",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-biscuits.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "a6994691180b08078d759cf3e68229b1",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-cucumber.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "4d247dc1ae491aa1eb1fb70711648110",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-herb.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "9b9c22574a80917e40132ab3c1514bd1",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-honey.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "027c5145a59a09578ae5872982bd1c7a",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-junk.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "0ef09b0f572049ac74e680923be5e4f8",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-milk.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "ba6590314c36fd2caa4ba8ef80336731",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-orange-juice.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "2c9948a3ac13aeff5f1c7b04d1d06df3",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-raspberries.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "c08a92cf4a609b0cdca123c6c5268a3e",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-tomatoes.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "4cd9ceb19a52f8b69f3a17dc1b60c8e0",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-tomatoketchup.png": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "6073ee71831215516610b2beeb658c86",
+    "semantic_hash": ""
+  },
+  "/home/bruno/shopify-store/my-store-theme/assets/foodmart/thumb-tuna.jpg": {
+    "mtime": 1780265143.5097394,
+    "ast_hash": "b01a6f9d81fd3e5f84b1db8bcf880432",
+    "semantic_hash": ""
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "close": "Close"
+    }
+  },
+  "sections": {
+    "header": {
+      "menu": "Menu",
+      "cart": "Cart",
+      "cart_title": "Your cart",
+      "cart_label": "Your Cart",
+      "cart_subtotal": "Subtotal",
+      "cart_empty": "Your cart is empty.",
+      "view_cart": "View cart",
+      "checkout": "Continue to checkout",
+      "continue_shopping": "Continue shopping",
+      "search_title": "Search",
+      "search_submit": "Search",
+      "account_title": "My account",
+      "account_dashboard": "Account",
+      "account_login": "Log in",
+      "account_register": "Create account",
+      "account_logout": "Log out",
+      "wishlist_title": "Wishlist",
+      "wishlist_hint": "Save your favorite products to view them later.",
+      "wishlist_view": "View wishlist",
+      "shop_departments": "Shop by Departments",
+      "all_categories": "All Categories",
+      "browse_menu": "Browse menu"
+    },
+    "footer": {
+      "copyright": "All rights reserved."
+    },
+    "hero": {
+      "shop_now": "Shop now"
+    }
+  }
+}

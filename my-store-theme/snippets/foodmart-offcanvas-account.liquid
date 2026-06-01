@@ -1,0 +1,43 @@
+<div
+  class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasAccount"
+  aria-labelledby="offcanvasAccountLabel"
+>
+  <div class="offcanvas-header justify-content-center">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="{{ 'general.accessibility.close' | t }}"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="order-md-last">
+      <h4 class="mb-3" id="offcanvasAccountLabel">
+        <span class="text-primary">{{ 'sections.header.account_title' | t }}</span>
+      </h4>
+      <ul class="list-group mb-3">
+        {% if customer %}
+          <li class="list-group-item">
+            <a href="{{ routes.account_url }}" class="text-decoration-none text-dark">
+              {{ 'sections.header.account_dashboard' | t }}
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a href="{{ routes.account_logout_url }}" class="text-decoration-none text-dark">
+              {{ 'sections.header.account_logout' | t }}
+            </a>
+          </li>
+        {% else %}
+          <li class="list-group-item">
+            <a href="{{ routes.account_login_url }}" class="text-decoration-none text-dark">
+              {{ 'sections.header.account_login' | t }}
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a href="{{ routes.account_register_url }}" class="text-decoration-none text-dark">
+              {{ 'sections.header.account_register' | t }}
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>

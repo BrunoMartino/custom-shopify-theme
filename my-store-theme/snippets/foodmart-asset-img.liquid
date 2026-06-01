@@ -1,0 +1,11 @@
+{% comment %}
+  Usage: {% render 'foodmart-asset-img', filename: 'thumb-bananas.png', alt: 'Product', class: 'tab-image' %}
+{% endcomment %}
+<img
+  src="{{ 'foodmart/' | append: filename | asset_url }}"
+  alt="{{ alt | escape }}"
+  class="foodmart-img-cover {{ class }}"
+  loading="lazy"
+  width="{{ width | default: 400 }}"
+  height="{{ height | default: 400 }}"
+>

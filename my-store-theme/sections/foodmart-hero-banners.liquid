@@ -1,0 +1,178 @@
+{% assign pattern_url = 'foodmart/background-pattern.jpg' | asset_url %}
+
+<section
+  class="py-3 foodmart-hero-banners"
+  style="background-image: url('{{ pattern_url }}');background-repeat: no-repeat;background-size: cover;"
+  {{ section.shopify_attributes }}
+>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="banner-blocks">
+          <div class="banner-ad large bg-info block-1">
+            <div
+              class="swiper main-swiper"
+              aria-label="{{ section.settings.carousel_label | escape }}"
+            >
+              <div class="swiper-wrapper">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'slide' %}
+                      <div class="swiper-slide" {{ block.shopify_attributes }}>
+                        <div class="row banner-content p-5">
+                          <div class="content-wrapper col-md-7">
+                            {% if block.settings.badge != blank %}
+                              <div class="categories my-3">{{ block.settings.badge }}</div>
+                            {% endif %}
+                            <h3 class="{% if forloop.first %}display-4{% else %}banner-title{% endif %}">
+                              {{ block.settings.title }}
+                            </h3>
+                            {% if block.settings.text != blank %}
+                              <p>{{ block.settings.text }}</p>
+                            {% endif %}
+                            {% if block.settings.button_text != blank %}
+                              <a
+                                href="{{ block.settings.button_link | default: '#' }}"
+                                class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3"
+                              >
+                                {{ block.settings.button_text }}
+                              </a>
+                            {% endif %}
+                          </div>
+                          <div class="img-wrapper col-md-5">
+                            {% if block.settings.image %}
+                              <img
+                                src="{{ block.settings.image | image_url: width: 600 }}"
+                                alt="{{ block.settings.title | escape }}"
+                                class="img-fluid foodmart-img-cover foodmart-hero-slide-img"
+                                loading="lazy"
+                                width="600"
+                                height="600"
+                              >
+                            {% elsif block.settings.demo_image != blank %}
+                              {% render 'foodmart-asset-img',
+                                filename: block.settings.demo_image,
+                                alt: block.settings.title,
+                                class: 'img-fluid foodmart-hero-slide-img',
+                                width: 600,
+                                height: 600
+                              %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          {% for block in section.blocks %}
+            {% if block.type == 'side_banner' %}
+              {% assign bg_image = 'foodmart/' | append: block.settings.demo_background | asset_url %}
+              <div
+                class="banner-ad {{ block.settings.bg_class }} block-{{ block.settings.grid_block }}"
+                style="background:url('{% if block.settings.background_image %}{{ block.settings.background_image | image_url: width: 800 }}{% else %}{{ bg_image }}{% endif %}') no-repeat;background-position: right bottom"
+                {{ block.shopify_attributes }}
+              >
+                <div class="row banner-content p-5">
+                  <div class="content-wrapper col-md-7">
+                    {% if block.settings.badge != blank %}
+                      <div class="categories sale mb-3 pb-3">{{ block.settings.badge }}</div>
+                    {% endif %}
+                    <h3 class="{% if block.settings.use_item_title %}item-title{% else %}banner-title{% endif %}">
+                      {{ block.settings.title }}
+                    </h3>
+                    {% if block.settings.button_text != blank %}
+                      <a href="{{ block.settings.button_link | default: '#' }}" class="d-flex align-items-center nav-link">
+                        {{ block.settings.button_text }}
+                        {% render 'foodmart-icon', icon: 'arrow-right', width: 24 %}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FM Hero banners",
+  "tag": "section",
+  "class": "section-foodmart-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "carousel_label",
+      "label": "Carousel accessibility label",
+      "default": "Promotional banners"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Main slide",
+      "settings": [
+        { "type": "text", "id": "badge", "label": "Badge", "default": "100% natural" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Fresh Smoothie & Summer Juice" },
+        { "type": "textarea", "id": "text", "label": "Description" },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Shop Now" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        {
+          "type": "text",
+          "id": "demo_image",
+          "label": "Demo image filename",
+          "default": "product-thumb-1.png",
+          "info": "Used when no image is uploaded (assets/foodmart/)"
+        }
+      ]
+    },
+    {
+      "type": "side_banner",
+      "name": "Side banner",
+      "settings": [
+        {
+          "type": "select",
+          "id": "grid_block",
+          "label": "Grid position",
+          "options": [
+            { "value": "2", "label": "Top right" },
+            { "value": "3", "label": "Bottom right" }
+          ],
+          "default": "2"
+        },
+        { "type": "text", "id": "bg_class", "label": "Bootstrap bg class", "default": "bg-success-subtle" },
+        { "type": "text", "id": "badge", "label": "Badge", "default": "20% off" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Fruits & Vegetables" },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Shop Collection" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "checkbox", "id": "use_item_title", "label": "Use item-title class", "default": false },
+        { "type": "image_picker", "id": "background_image", "label": "Background image" },
+        {
+          "type": "text",
+          "id": "demo_background",
+          "label": "Demo background filename",
+          "default": "ad-image-1.png"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FM Hero banners",
+      "blocks": [
+        { "type": "slide", "settings": { "demo_image": "product-thumb-1.png" } },
+        { "type": "slide", "settings": { "title": "Heinz Tomato Ketchup", "demo_image": "product-thumb-2.png", "button_text": "Shop Collection" } },
+        { "type": "side_banner", "settings": { "grid_block": "2", "demo_background": "ad-image-1.png" } },
+        { "type": "side_banner", "settings": { "grid_block": "3", "bg_class": "bg-danger", "badge": "15% off", "title": "Baked Products", "demo_background": "ad-image-2.png", "use_item_title": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

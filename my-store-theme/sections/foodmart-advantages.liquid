@@ -1,0 +1,67 @@
+<section class="py-5 foodmart-advantages" {{ section.shopify_attributes }}>
+  <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5">
+      {% for block in section.blocks %}
+        <div class="col" {{ block.shopify_attributes }}>
+          <div class="card mb-3 border-0">
+            <div class="row">
+              <div class="col-md-2 text-dark">
+                {% if block.settings.icon_svg != blank %}
+                  {{ block.settings.icon_svg }}
+                {% endif %}
+              </div>
+              <div class="col-md-10">
+                <div class="card-body p-0">
+                  <h5>{{ block.settings.title }}</h5>
+                  <p class="card-text">{{ block.settings.text }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FM Advantages",
+  "tag": "section",
+  "class": "section-foodmart-advantages",
+  "blocks": [
+    {
+      "type": "advantage",
+      "name": "Advantage",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Free delivery" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Lorem ipsum dolor sit amet, consectetur adipi elit." },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG",
+          "default": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M21.5 15a3 3 0 0 0-1.9-2.78l1.87-7a1 1 0 0 0-.18-.87A1 1 0 0 0 20.5 4H6.8l-.33-1.26A1 1 0 0 0 5.5 2h-2v2h1.23l2.48 9.26a1 1 0 0 0 1 .74H18.5a1 1 0 0 1 0 2h-13a1 1 0 0 0 0 2h1.18a3 3 0 1 0 5.64 0h2.36a3 3 0 1 0 5.82 1a2.94 2.94 0 0 0-.4-1.47A3 3 0 0 0 21.5 15Z\"/></svg>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FM Advantages",
+      "blocks": [
+        { "type": "advantage" },
+        {
+          "type": "advantage",
+          "settings": {
+            "title": "100% secure payment",
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M19.63 3.65a1 1 0 0 0-.84-.2a8 8 0 0 1-6.22-1.27a1 1 0 0 0-1.14 0a8 8 0 0 1-6.22 1.27a1 1 0 0 0-.84.2a1 1 0 0 0-.37.78v7.45a9 9 0 0 0 3.77 7.33l3.65 2.6a1 1 0 0 0 1.16 0l3.65-2.6A9 9 0 0 0 20 11.88V4.43a1 1 0 0 0-.37-.78Z\"/></svg>"
+          }
+        },
+        { "type": "advantage", "settings": { "title": "Quality guarantee" } },
+        { "type": "advantage", "settings": { "title": "guaranteed savings" } },
+        { "type": "advantage", "settings": { "title": "Daily offers" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,12 @@
+{% comment %}
+  {% render 'foodmart-icon', icon: 'heart', width: 24, class: 'text-primary' %}
+{% endcomment %}
+<svg
+  width="{{ width | default: 24 }}"
+  height="{{ height | default: width | default: 24 }}"
+  class="{{ class }}"
+  aria-hidden="true"
+  focusable="false"
+>
+  <use href="#{{ icon }}" xlink:href="#{{ icon }}"></use>
+</svg>

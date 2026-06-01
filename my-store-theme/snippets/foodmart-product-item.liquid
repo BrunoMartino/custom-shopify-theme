@@ -1,0 +1,104 @@
+{% comment %}
+  Product card (FoodMart). Pass either:
+  - product: Shopify product object
+  - block: section block with manual settings
+  - slide: true when inside Splide carousel
+{% endcomment %}
+
+{% if product != blank %}
+  {% assign item_title = product.title %}
+  {% assign item_url = product.url %}
+  {% assign item_price = product.price | money %}
+  {% assign item_image = product.featured_image %}
+  {% assign item_qty = product.selected_or_first_available_variant.title %}
+  {% assign badge_text = '-15%' %}
+  {% assign show_badge = false %}
+  {% if product.compare_at_price > product.price %}
+    {% assign show_badge = true %}
+  {% endif %}
+{% elsif block != blank %}
+  {% assign item_title = block.settings.title %}
+  {% assign item_url = block.settings.link | default: '#' %}
+  {% assign item_price = block.settings.price %}
+  {% assign item_qty = block.settings.qty %}
+  {% assign badge_text = block.settings.badge %}
+  {% assign item_rating = block.settings.rating %}
+  {% assign demo_image = block.settings.demo_image %}
+  {% assign show_badge = false %}
+  {% if block.settings.badge != blank %}
+    {% assign show_badge = true %}
+  {% endif %}
+{% endif %}
+
+<div class="product-item{% if slide %} swiper-slide{% endif %}"{% if block %}{{ block.shopify_attributes }}{% endif %}>
+  {% if show_badge %}
+    <span class="badge bg-success position-absolute m-3">{{ badge_text }}</span>
+  {% endif %}
+  <a href="{{ item_url }}" class="btn-wishlist" aria-label="Add to wishlist">
+    {% render 'foodmart-icon', icon: 'heart', width: 24 %}
+  </a>
+  <figure class="foodmart-product-figure">
+    <a href="{{ item_url }}" title="{{ item_title | escape }}" class="foodmart-product-figure__link">
+      {% if item_image %}
+        <img
+          src="{{ item_image | image_url: width: 400 }}"
+          alt="{{ item_image.alt | escape }}"
+          class="tab-image foodmart-img-cover"
+          loading="lazy"
+          width="400"
+          height="400"
+        >
+      {% elsif demo_image != blank %}
+        {% render 'foodmart-asset-img', filename: demo_image, alt: item_title, class: 'tab-image' %}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'tab-image' }}
+      {% endif %}
+    </a>
+  </figure>
+  <h3>
+    <a href="{{ item_url }}" class="text-decoration-none text-dark">{{ item_title }}</a>
+  </h3>
+  {% if item_qty != blank %}
+    <span class="qty">{{ item_qty }}</span>
+  {% endif %}
+  {% if item_rating != blank %}
+    <span class="rating">
+      {% render 'foodmart-icon', icon: 'star-solid', width: 24, class: 'text-primary' %}
+      {{ item_rating | default: '4.5' }}
+    </span>
+  {% elsif product == blank %}
+    <span class="rating">
+      {% render 'foodmart-icon', icon: 'star-solid', width: 24, class: 'text-primary' %}
+      4.5
+    </span>
+  {% endif %}
+  <span class="price">{{ item_price }}</span>
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="input-group product-qty">
+      <span class="input-group-btn">
+        <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" aria-label="Decrease quantity">
+          {% render 'foodmart-icon', icon: 'minus', width: 16 %}
+        </button>
+      </span>
+      <input type="text" name="quantity" class="form-control input-number" value="1" aria-label="Quantity">
+      <span class="input-group-btn">
+        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" aria-label="Increase quantity">
+          {% render 'foodmart-icon', icon: 'plus', width: 16 %}
+        </button>
+      </span>
+    </div>
+    {% if product != blank and product.available %}
+      <form method="post" action="{{ routes.cart_add_url }}">
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" class="nav-link btn btn-link border-0 p-0">
+          Add to Cart
+          {% render 'foodmart-icon', icon: 'cart', width: 20 %}
+        </button>
+      </form>
+    {% else %}
+      <a href="{{ item_url }}" class="nav-link d-inline-flex align-items-center gap-1">Add to Cart
+        {% render 'foodmart-icon', icon: 'cart', width: 20 %}
+      </a>
+    {% endif %}
+  </div>
+</div>

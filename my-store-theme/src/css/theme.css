@@ -1,0 +1,8 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'swiper/css/bundle';
+@import 'aos/dist/aos.css';
+
+@import './base/variables.css';
+@import './base/reset.css';
+@import './components/buttons.css';
+@import './components/foodmart.css';
